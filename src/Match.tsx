@@ -5,18 +5,18 @@ import {BaseType} from "./Test";
 type MatchType = {
     A: BaseType
     B: BaseType
-    setData: (val: string)=> void
+    setData: (val: string) => void
     data: string
+    setStats:(obj:BaseType[])=>void
 }
 
-const Match: React.FC<MatchType> = ({A,B, setData, data}) => {
+const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
 
     const [firstValue, setFirstValue] = useState<number>(0)
     const [secondValue, setSecondValue] = useState<number>(0)
 
-    const [data2, setData2] = useState("")
 
-    const scoreGeneratorToWin = (aV: (value: number)=>void,bV: (value: number)=>void) => {
+    const scoreGeneratorToWin = (aV: (value: number) => void, bV: (value: number) => void) => {
         const ScoreRandomNumber = Math.ceil(Math.random() * 100)
         if (ScoreRandomNumber >= 0 && ScoreRandomNumber < 21) {
             aV(1)
@@ -70,7 +70,7 @@ const Match: React.FC<MatchType> = ({A,B, setData, data}) => {
         }
     }
 
-    const scoreGeneratorToLost = (aV: (value: number)=>void,bV: (value: number)=>void) => {
+    const scoreGeneratorToLost = (aV: (value: number) => void, bV: (value: number) => void) => {
         const ScoreRandomNumber = Math.ceil(Math.random() * 100)
         if (ScoreRandomNumber >= 0 && ScoreRandomNumber < 21) {
             aV(0)
@@ -124,7 +124,7 @@ const Match: React.FC<MatchType> = ({A,B, setData, data}) => {
         }
     }
 
-    const scoreGeneratorToDraw = (aV: (value: number)=>void,bV: (value: number)=>void) => {
+    const scoreGeneratorToDraw = (aV: (value: number) => void, bV: (value: number) => void) => {
         const ScoreRandomNumber = Math.ceil(Math.random() * 100)
         if (ScoreRandomNumber >= 0 && ScoreRandomNumber < 31) {
             aV(0)
@@ -152,81 +152,64 @@ const Match: React.FC<MatchType> = ({A,B, setData, data}) => {
 
     }
 
-    const testGenerate = (a: number,b: number, c:(val: number)=>void, d:(val: number)=>void)=> {
-        console.log(a-b)
-        let w=60;
-        let l=20;
-        if(a-b>65){
+    const testGenerate = (a: number, b: number, c: (val: number) => void, d: (val: number) => void) => {
+        console.log(a - b)
+        let w = 60;
+        let l = 20;
+        if (a - b > 65) {
             w = 80;
             l = 92
-        }
-        else if(a-b>55 && a-b<=65){
+        } else if (a - b > 55 && a - b <= 65) {
             w = 76;
             l = 90
-        }
-        else if(a-b>44 && a-b<=55){
+        } else if (a - b > 44 && a - b <= 55) {
             w = 68;
             l = 86
-        }
-        else if(a-b>36 && a-b<=44){
+        } else if (a - b > 36 && a - b <= 44) {
             w = 62;
             l = 84
-        }
-        else if(a-b>27 && a-b<=36){
+        } else if (a - b > 27 && a - b <= 36) {
             w = 58;
             l = 82
-        }
-        else if(a-b>18 && a-b<=27){
+        } else if (a - b > 18 && a - b <= 27) {
             w = 52;
             l = 76
-        }
-        else if(a-b>9 && a-b<=18){
+        } else if (a - b > 9 && a - b <= 18) {
             w = 44;
             l = 74
-        }
-        else if(a-b>0 && a-b<=9){
+        } else if (a - b > 0 && a - b <= 9) {
             w = 36;
             l = 70
-        }
-        else  if(b-a>65){
+        } else if (b - a > 65) {
             w = 8;
             l = 20
-        }
-        else if(b-a>55 && b-a<=65){
+        } else if (b - a > 55 && b - a <= 65) {
             w = 10;
             l = 24
-        }
-        else if(b-a>44 && b-a<=55){
+        } else if (b - a > 44 && b - a <= 55) {
             w = 14;
             l = 32
-        }
-        else if(b-a>36 && b-a<=44){
+        } else if (b - a > 36 && b - a <= 44) {
             w = 16;
             l = 38
-        }
-        else if(b-a>27 && b-a<=36){
+        } else if (b - a > 27 && b - a <= 36) {
             w = 18;
             l = 42
-        }
-        else if(b-a>18 && b-a<=27){
+        } else if (b - a > 18 && b - a <= 27) {
             w = 24;
             l = 48
-        }
-        else if(b-a>9 && b-a<=18){
+        } else if (b - a > 9 && b - a <= 18) {
             w = 26;
             l = 56
-        }
-        else if(b-a>0 && b-a<=9){
+        } else if (b - a > 0 && b - a <= 9) {
             w = 30;
             l = 64
-        }
-        else {
+        } else {
             console.warn("something wrong!")
             w = 20;
             l = 60
         }
         const FirstRandomNumber = Math.ceil(Math.random() * 100)
-        //console.log(FirstRandomNumber)
         if (FirstRandomNumber <= w) {
             scoreGeneratorToWin(c, d)
         } else if (FirstRandomNumber > l) {
@@ -236,28 +219,55 @@ const Match: React.FC<MatchType> = ({A,B, setData, data}) => {
         }
     }
 
-    const SETG = ()=>{
-        setData2(data2=>data2+firstValue +secondValue)
-        setData(data+`${firstValue} ${secondValue}//`)
-    }
+    const SETG = () => {
+        A.games = A.games+1
+        B.games = B.games+1
+        A.scored = A.scored + firstValue
+        A.conceded = A.conceded + secondValue
+        B.scored = B.scored + secondValue
+        B.conceded = B.conceded + firstValue
 
-    //console.log(`${A.name} ${B.name} ${firstValue} ${secondValue}`)
-    const stata = `${A.name} ${B.name} ${firstValue} ${secondValue}`
-    // const allStats = StatisticAdder(A,B)
-    const result = []
-    result.push(stata)
+if(firstValue>secondValue){
+    A.wins = A.wins+1
+    A.points = A.points+3
+    B.lost = B.lost+1
+}
+else if(firstValue<secondValue){
+    B.wins = B.wins+1
+    B.points = B.points+3
+    A.lost = A.lost +1
+}
+else{
+    A.draws = A.draws+1
+    B.draws = B.draws+1
+    A.points = A.points+1
+    B.points = B.points+1
+}
+        setData(data + `${A.name} ${B.name} ${firstValue} ${secondValue} ${A.wins} ${B.wins}/`)
+        setStats([A, B])
+    }
 
 
     return (
+        <>
+
         <div>
-            {data2}
+
             <h2>
 
                 {A.name}:{B.name}--{firstValue}:{secondValue}
-                <button onClick={()=>{testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)}}>play</button>
+                <button onClick={() => {
+                    testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)
+                }}>play
+                </button>
                 <button onClick={SETG}>set</button>
             </h2>
         </div>
+        <div>
+
+        </div>
+
+        </>
     );
 };
 
