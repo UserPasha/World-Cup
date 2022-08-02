@@ -1,0 +1,15 @@
+.StatsWrapper{
+    width: 90%;
+    min-height: 320px;
+    margin: 100px 0 0 100px;
+    /*border: #91e1e1 3px solid;*/
+    font-size: 32px;
+    line-height: 24px;
+    color: rgb(229, 201, 209);
+}
+.StatsWrapper td{
+    height: 60px;
+}
+.tdCountryName{
+    width: 180px;
+}

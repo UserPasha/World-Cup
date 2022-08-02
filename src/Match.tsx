@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {BaseType} from "./Test";
-
+import style from "./Match.module.css"
 
 type MatchType = {
     A: BaseType
     B: BaseType
     setData: (val: string) => void
     data: string
-    setStats:(obj:BaseType[])=>void
+    setStats: (obj: BaseType[]) => void
 }
 
 const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
@@ -157,53 +157,53 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
         let w = 60;
         let l = 20;
         if (a - b > 65) {
-            w = 83;
-            l = 92
+            w = 85;
+            l = 94
         } else if (a - b > 55 && a - b <= 65) {
-            w = 76;
+            w = 80;
             l = 90
         } else if (a - b > 42 && a - b <= 55) {
-            w = 68;
+            w = 74;
             l = 86
         } else if (a - b > 30 && a - b <= 42) {
-            w = 62;
+            w = 69;
             l = 84
         } else if (a - b > 22 && a - b <= 30) {
-            w = 58;
+            w = 63;
             l = 82
         } else if (a - b > 14 && a - b <= 22) {
-            w = 52;
+            w = 56;
             l = 76
         } else if (a - b > 7 && a - b <= 14) {
-            w = 44;
+            w = 47;
             l = 74
         } else if (a - b > 0 && a - b <= 7) {
-            w = 36;
+            w = 39;
             l = 70
         } else if (b - a > 65) {
-            w = 8;
-            l = 16
+            w = 6;
+            l = 15
         } else if (b - a > 55 && b - a <= 65) {
             w = 10;
-            l = 24
+            l = 20;
         } else if (b - a > 42 && b - a <= 55) {
             w = 14;
-            l = 32
+            l = 26
         } else if (b - a > 30 && b - a <= 42) {
             w = 16;
-            l = 38
+            l = 31
         } else if (b - a > 22 && b - a <= 30) {
             w = 18;
-            l = 42
+            l = 37
         } else if (b - a > 14 && b - a <= 22) {
             w = 24;
-            l = 48
+            l = 44
         } else if (b - a > 7 && b - a <= 14) {
             w = 26;
-            l = 56
+            l = 53
         } else if (b - a > 0 && b - a <= 7) {
             w = 30;
-            l = 64
+            l = 61
         } else {
             console.warn("something wrong!")
             w = 20;
@@ -220,29 +220,27 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
     }
 
     const SETG = () => {
-        A.games = A.games+1
-        B.games = B.games+1
+        A.games = A.games + 1
+        B.games = B.games + 1
         A.scored = A.scored + firstValue
         A.conceded = A.conceded + secondValue
         B.scored = B.scored + secondValue
         B.conceded = B.conceded + firstValue
 
-if(firstValue>secondValue){
-    A.wins = A.wins+1
-    A.points = A.points+3
-    B.lost = B.lost+1
-}
-else if(firstValue<secondValue){
-    B.wins = B.wins+1
-    B.points = B.points+3
-    A.lost = A.lost +1
-}
-else{
-    A.draws = A.draws+1
-    B.draws = B.draws+1
-    A.points = A.points+1
-    B.points = B.points+1
-}
+        if (firstValue > secondValue) {
+            A.wins = A.wins + 1
+            A.points = A.points + 3
+            B.lost = B.lost + 1
+        } else if (firstValue < secondValue) {
+            B.wins = B.wins + 1
+            B.points = B.points + 3
+            A.lost = A.lost + 1
+        } else {
+            A.draws = A.draws + 1
+            B.draws = B.draws + 1
+            A.points = A.points + 1
+            B.points = B.points + 1
+        }
         setData(data + `${A.name} ${B.name} ${firstValue} ${secondValue} ${A.wins} ${B.wins}/`)
         setStats([A, B])
     }
@@ -251,21 +249,31 @@ else{
     return (
         <>
 
-        <div>
+            <div className={style.MatcItem}>
 
-            <h2>
+                <div className={style.ItemWrapper}>
 
-                {A.name}:{B.name}--{firstValue}:{secondValue}
-                <button onClick={() => {
-                    testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)
-                }}>play
-                </button>
-                <button onClick={SETG}>set</button>
-            </h2>
-        </div>
-        <div>
+                    {/*{` ${A.name} ${firstValue}  :  ${secondValue} ${B.name}`}*/}
+                    {/*{A.name}{firstValue}:{secondValue}{B.name}*/}
+                    <div className={style.ItemValuesWithNames}>{A.name}</div>
+                    <div className={style.ItemValues}>{firstValue}</div>
+                    <div className={style.ItemValues}>{secondValue}</div>
+                    <div className={style.ItemValuesWithNames}>{B.name}</div>
+                </div>
+                <div className={style.ButtnosWrapper}>
+                    <button onClick={() => {
+                        testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)
+                    }}>play
+                    </button>
+                    <button onClick={SETG}>set</button>
+                </div>
 
-        </div>
+
+            </div>
+
+            <div>
+
+            </div>
 
         </>
     );

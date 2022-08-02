@@ -1,19 +1,10 @@
-*{
+* {
     box-sizing: border-box;
 }
-.GroupWrapper{
-    width: 100%;
-    min-height: 300px;
-    border: black 2px solid;
-display: flex;
-}
-.MatchesWrapper{
-    width: 60%;
-    height: 400px;
-    border: #d91e1e 2px solid;
-}
-.TableWrapper{
-    width: 40%;
-    min-height: 300px;
-    border: #196e1b 2px solid;
+
+.AppWrapper{
+    width: 1600px;
+    height: 100vh;
+    margin: 0 auto;
+    font-family: 'Acme', sans-serif;
 }

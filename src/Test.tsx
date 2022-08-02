@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Group from "./Group";
-import PlayOffs from "./PlayOffs";
-
+import MatchPO from "./MatchPO";
+import a from "./Images/Mini/Brazil.png"
 
 export  type BaseType = {
     name: string
@@ -433,48 +433,67 @@ const Test = () => {
     const [stats, setStats] = useState<BaseType[]>([
         POR, URU
     ])
-    const [a1, setA1] =useState<BaseType[]>([
+    const [a1, setA1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [b1, setB1] =useState<BaseType[]>([
+    const [b1, setB1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [c1, setC1] =useState<BaseType[]>([
+    const [c1, setC1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [d1, setD1] =useState<BaseType[]>([
+    const [d1, setD1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [e1, setE1] =useState<BaseType[]>([
+    const [e1, setE1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [f1, setF1] =useState<BaseType[]>([
+    const [f1, setF1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [g1, setG1] =useState<BaseType[]>([
+    const [g1, setG1] = useState<BaseType[]>([
         POR, URU
     ])
-    const [h1, setH1] =useState<BaseType[]>([
+    const [h1, setH1] = useState<BaseType[]>([
         POR, URU
     ])
+
+    const AFlags = [a,"./Images/Mini/Brazil.png","./Images/Mini/Brazil.png","./Images/Mini/Brazil.png",]
+
+
     return (
         <>
 
-            <div>
+            <div className="AppWrapper">
                 {data}
-                <Group A={SEN} B={NET} C={QUA} D={ECU} setData={setData} data={data} setStats={setStats} setPlay={setA1}/>
-                <Group A={ENG} B={IRN} C={USA} D={WAL} setData={setData} data={data} setStats={setStats} setPlay={setB1}/>
-                <Group A={ARG} B={ARA} C={MEX} D={POL} setData={setData} data={data} setStats={setStats} setPlay={setC1}/>
-                <Group A={DAN} B={TUN} C={FRA} D={AST} setData={setData} data={data} setStats={setStats} setPlay={setD1}/>
-                <Group A={GER} B={JPN} C={SPA} D={COS} setData={setData} data={data} setStats={setStats} setPlay={setE1}/>
-                <Group A={MOR} B={CRO} C={BEL} D={CAN} setData={setData} data={data} setStats={setStats} setPlay={setF1}/>
-                <Group A={SWI} B={CAM} C={BRA} D={SER} setData={setData} data={data} setStats={setStats} setPlay={setG1}/>
-                <Group A={URU} B={KOR} C={POR} D={GHA} setData={setData} data={data} setStats={setStats} setPlay={setH1}/>
-                <PlayOffs A={a1[0]} B={b1[1]} C={c1[0]} D={d1[1]} setData={setData} data={data} setStats={setStats}/>
-                <PlayOffs A={d1[0]} B={c1[1]} C={b1[0]} D={a1[1]}  setData={setData} data={data} setStats={setStats}/>
-                <PlayOffs A={e1[0]} B={f1[1]} C={g1[0]} D={h1[1]}  setData={setData} data={data} setStats={setStats}/>
-                <PlayOffs A={f1[0]} B={e1[1]} C={h1[0]} D={g1[1]}  setData={setData} data={data} setStats={setStats}/>
-
+                <Group A={SEN} B={NET} C={QUA} D={ECU} setData={setData} data={data} setStats={setStats}
+                       setPlay={setA1} title={"A"} flags={AFlags}/>
+                <Group A={ENG} B={IRN} C={USA} D={WAL} setData={setData} data={data} setStats={setStats}
+                       setPlay={setB1} title={"B"}flags={AFlags}/>
+                <Group A={ARG} B={ARA} C={MEX} D={POL} setData={setData} data={data} setStats={setStats}
+                       setPlay={setC1} title={"C"}flags={AFlags}/>
+                <Group A={DAN} B={TUN} C={FRA} D={AST} setData={setData} data={data} setStats={setStats}
+                       setPlay={setD1} title={"D"}flags={AFlags}/>
+                {/*<Group A={GER} B={JPN} C={SPA} D={COS} setData={setData} data={data} setStats={setStats}*/}
+                {/*       setPlay={setE1} title={"E"}/>*/}
+                {/*<Group A={MOR} B={CRO} C={BEL} D={CAN} setData={setData} data={data} setStats={setStats}*/}
+                {/*       setPlay={setF1} title={"F"}/>*/}
+                {/*<Group A={SWI} B={CAM} C={BRA} D={SER} setData={setData} data={data} setStats={setStats}*/}
+                {/*       setPlay={setG1} title={"G"}/>*/}
+                {/*<Group A={URU} B={KOR} C={POR} D={GHA} setData={setData} data={data} setStats={setStats}*/}
+                {/*       setPlay={setH1} title={"H"}/>*/}
+                {/*<PlayOffs A={a1[0]} B={b1[1]} C={c1[0]} D={d1[1]} setData={setData} data={data} setStats={setStats}/>*/}
+                {/*<PlayOffs A={d1[0]} B={c1[1]} C={b1[0]} D={a1[1]}  setData={setData} data={data} setStats={setStats}/>*/}
+                {/*<PlayOffs A={e1[0]} B={f1[1]} C={g1[0]} D={h1[1]}  setData={setData} data={data} setStats={setStats}/>*/}
+                {/*<PlayOffs A={f1[0]} B={e1[1]} C={h1[0]} D={g1[1]}  setData={setData} data={data} setStats={setStats}/>*/}
+                <MatchPO A={a1[0]} B={b1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={c1[0]} B={d1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={d1[0]} B={c1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={b1[0]} B={a1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={e1[0]} B={f1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={g1[0]} B={h1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={f1[0]} B={e1[1]} setData={setData} data={data} setStats={setStats}/>
+                <MatchPO A={h1[0]} B={g1[1]} setData={setData} data={data} setStats={setStats}/>
             </div>
 
 
