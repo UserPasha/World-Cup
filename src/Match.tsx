@@ -14,7 +14,8 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
 
     const [firstValue, setFirstValue] = useState<number>(0)
     const [secondValue, setSecondValue] = useState<number>(0)
-
+    const [clicker, setClicker] = useState(false)
+    const [secondClicker, setSecondClicker]= useState(false)
 
     const scoreGeneratorToWin = (aV: (value: number) => void, bV: (value: number) => void) => {
         const ScoreRandomNumber = Math.ceil(Math.random() * 100)
@@ -163,22 +164,22 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
             w = 80;
             l = 90
         } else if (a - b > 42 && a - b <= 55) {
-            w = 74;
+            w = 76;
             l = 86
         } else if (a - b > 30 && a - b <= 42) {
-            w = 69;
-            l = 84
+            w = 70;
+            l = 86
         } else if (a - b > 22 && a - b <= 30) {
-            w = 63;
+            w = 64;
             l = 82
         } else if (a - b > 14 && a - b <= 22) {
             w = 56;
             l = 76
         } else if (a - b > 7 && a - b <= 14) {
-            w = 47;
+            w = 48;
             l = 74
         } else if (a - b > 0 && a - b <= 7) {
-            w = 39;
+            w = 40;
             l = 70
         } else if (b - a > 65) {
             w = 6;
@@ -188,22 +189,22 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
             l = 20;
         } else if (b - a > 42 && b - a <= 55) {
             w = 14;
-            l = 26
+            l = 24
         } else if (b - a > 30 && b - a <= 42) {
-            w = 16;
-            l = 31
+            w = 14;
+            l = 30
         } else if (b - a > 22 && b - a <= 30) {
             w = 18;
-            l = 37
+            l = 36
         } else if (b - a > 14 && b - a <= 22) {
             w = 24;
             l = 44
         } else if (b - a > 7 && b - a <= 14) {
             w = 26;
-            l = 53
+            l = 52
         } else if (b - a > 0 && b - a <= 7) {
             w = 30;
-            l = 61
+            l = 60
         } else {
             console.warn("something wrong!")
             w = 20;
@@ -217,6 +218,7 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
         } else {
             scoreGeneratorToDraw(c, d)
         }
+        setClicker(true)
     }
 
     const SETG = () => {
@@ -243,6 +245,7 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
         }
         setData(data + `${A.name} ${B.name} ${firstValue} ${secondValue} ${A.wins} ${B.wins}/`)
         setStats([A, B])
+        setSecondClicker(true)
     }
 
 
@@ -263,9 +266,9 @@ const Match: React.FC<MatchType> = ({A, B, setData, data, setStats}) => {
                 <div className={style.ButtnosWrapper}>
                     <button onClick={() => {
                         testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)
-                    }}>play
+                    }} disabled={clicker}>play
                     </button>
-                    <button onClick={SETG}>set</button>
+                    <button onClick={SETG} disabled={secondClicker}>set</button>
                 </div>
 
 

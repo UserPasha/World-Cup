@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BaseType} from "./Test";
 import style from "./Stats.module.css"
+
 type StatsType = {
     stats: BaseType[],
     setPlay: (obj: BaseType[]) => void
 }
 const Stats = (Props: StatsType) => {
 
-
+    const [clicker, setClicker] = useState(false)
     const SuperMegaSort = Props.stats.sort(function (a, b) {
 
         if (a.points === b.points) {
@@ -24,11 +25,19 @@ const Stats = (Props: StatsType) => {
 
     const sortedX = Props.stats.sort((a: BaseType, b: BaseType): number => a.points <= b.points ? 1 : -1)
 
-    const y = sortedX.map(m => <tr key={m.rating + new Date().getMilliseconds()}><td className={style.tdCountryName}>{m.name}</td>
-        <td>{m.games}/</td> <td>{m.points}/</td>
-        <td>{m.wins}/</td> <td>{m.draws}/</td> <td>{m.lost}/</td> <td>{m.scored}:</td>
-        <td>{m.conceded}/</td>
-        <td>{m.scored - m.conceded}</td></tr>)
+    const y = sortedX.map(m =>
+        <tr key={m.rating + new Date().getMilliseconds()}>
+            <td className={style.tdImage}><img src={m.image}/></td>
+            <td className={style.tdCountryName}>{m.name}</td>
+            <td className={style.tdItem}>{m.games}</td>
+            <td className={style.tdItem}>{m.points}</td>
+            <td className={style.tdItem}>{m.wins}</td>
+            <td className={style.tdItem}>{m.draws}</td>
+            <td className={style.tdItem}>{m.lost}</td>
+            <td className={style.tdItem}>{m.scored}</td>
+            <td className={style.tdItem}>{m.conceded}</td>
+            <td className={style.tdItem}>{m.scored - m.conceded}</td>
+        </tr>)
     // const y = sortedX.map(m => <div key={m.rating + new Date().getMilliseconds()}><span>{m.name}</span>
     //     <span>{m.games}/</span> <span>{m.points}/</span>
     //     <span>{m.wins}/</span> <span>{m.draws}/</span> <span>{m.lost}/</span> <span>{m.scored}:</span>
@@ -36,6 +45,7 @@ const Stats = (Props: StatsType) => {
     //     <span>{m.scored - m.conceded}</span></div>)
     const GoTolayOff = () => {
         Props.setPlay(sortedX)
+        setClicker(true)
     }
     const AllGamesPlayed = Props.stats[0].games !== 3 || Props.stats[1].games !== 3 || Props.stats[2].games !== 3 || Props.stats[3].games !== 3
 
@@ -43,14 +53,26 @@ const Stats = (Props: StatsType) => {
         <div className={style.StatsWrapper}>
 
             <table>
-                {/*<tr>*/}
-                {/*    <th></th>*/}
-                {/*    <th></th>*/}
-                {/*</tr>*/}
+                <thead>
+                <tr>
+                    <th></th>
+                    <th className={style.thCountryName}>Country</th>
+                    <th className={style.thItem}>Ga</th>
+                    <th className={style.thItem}>P</th>
+                    <th className={style.thItem}>W</th>
+                    <th className={style.thItem}>D</th>
+                    <th className={style.thItem}>L</th>
+                    <th className={style.thItem}>Sco</th>
+                    <th className={style.thItem}>Con</th>
+                    <th className={style.thItem}>Dif</th>
+                </tr>
+                </thead>
+                <tbody>
                 {y}
+                </tbody>
             </table>
 
-            <button onClick={GoTolayOff} disabled={AllGamesPlayed}>Go PlayOFF</button>
+            <button onClick={GoTolayOff} disabled={AllGamesPlayed || clicker}>Go PlayOFF</button>
 
 
         </div>

@@ -14,8 +14,6 @@ type GroupProrsType = {
     setStats: (obj: BaseType[]) => void
     setPlay: (obj: BaseType[]) => void
     title: string
-
-    flags: string[]
 }
 
 const Group: React.FC<GroupProrsType> = ({
@@ -33,10 +31,10 @@ const Group: React.FC<GroupProrsType> = ({
             <div className={style.CroupTitle} onClick={toggler}>
                 <div className={style.Title}>GROUP {title}</div>
                 <div className={style.FlagItems}>
-                    {/*<div><img src={Props.flags[0]}/></div>*/}
-                    {/*<div><img src={Props.flags[0]}/></div>*/}
-                    {/*<div><img src={Props.flags[0]}/></div>*/}
-                    {/*<div><img src={Props.flags[0]}/></div>*/}
+                    <div className={style.flag}><img src={A.image}/></div>
+                    <div className={style.flag}><img src={B.image}/></div>
+                    <div className={style.flag}><img src={C.image}/></div>
+                    <div className={style.flag}><img src={D.image}/></div>
                 </div>
             </div>
             :
