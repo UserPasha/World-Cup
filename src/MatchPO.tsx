@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {BaseType} from "./Test";
+import PlayOffStats from "./PlayOffStats";
 
 type MatchPOPropsType = {
     A: BaseType
     B: BaseType
-    setData: (val: string) => void
-    data: string
-    setStats:(obj:BaseType[])=>void
+    setOneEight:(obj:BaseType[])=>void
 }
 
-const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setData, data, setStats}) => {
+const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setOneEight}) => {
 
     const [firstValue, setFirstValue] = useState<number>(0)
     const [secondValue, setSecondValue] = useState<number>(0)
@@ -132,23 +131,23 @@ const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setData, data, setStats}) =>
             w = 90;
             l = 90
         } else if (a - b > 34 && a - b <= 45) {
-            w = 80;
-            l = 80
+            w = 86;
+            l = 86
         } else if (a - b > 24 && a - b <= 34) {
-            w = 74;
-            l = 74
+            w = 82;
+            l = 82
         } else if (a - b > 16 && a - b <= 24) {
-            w = 68;
-            l = 68;
+            w = 76;
+            l = 76;
         } else if (a - b > 10 && a - b <= 16) {
-            w = 63;
-            l = 63;
+            w = 70;
+            l = 70;
         } else if (a - b > 5 && a - b <= 10) {
+            w = 62;
+            l = 62;
+        } else if (a - b >= 0 && a - b <= 5) {
             w = 56;
-            l = 56;
-        } else if (a - b > 0 && a - b <= 5) {
-            w = 50;
-            l = 50
+            l = 56
         } else if (b - a > 60) {
             w = 5;
             l = 5
@@ -156,27 +155,27 @@ const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setData, data, setStats}) =>
             w = 10;
             l = 10
         } else if (b - a > 34 && b - a <= 45) {
-            w = 20;
-            l = 20
+            w = 14;
+            l = 14
         } else if (b - a > 24 && b - a <= 34) {
-            w = 26;
-            l = 26;
+            w = 18;
+            l = 18;
         } else if (b - a > 16 && b - a <= 24) {
-            w = 32;
-            l = 32;
+            w = 24;
+            l = 24;
         } else if (b - a > 10 && b - a <= 16) {
-            w = 37;
-            l = 37;
+            w = 30;
+            l = 30;
         } else if (b - a > 5 && b - a <= 10) {
+            w = 38;
+            l = 38;
+        } else if (b - a >= 0 && b - a <= 5) {
             w = 44;
-            l = 44;
-        } else if (b - a > 0 && b - a <= 5) {
-            w = 50;
-            l = 50
+            l = 44
         } else {
             console.warn("something wrong!")
-            w = 20;
-            l = 60
+            w = 50;
+            l = 50
         }
         const FirstRandomNumber = Math.ceil(Math.random() * 100)
         if (FirstRandomNumber <= w) {
@@ -190,17 +189,13 @@ const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setData, data, setStats}) =>
 
     const SETG = () => {
         if(firstValue>secondValue){
-            A.wins = A.wins+1
-            A.points = A.points+3
-            B.lost = B.lost+1
+            A.oneEightWin = A.oneEightWin+5
         }
         else if(firstValue<secondValue){
-            B.wins = B.wins+1
-            B.points = B.points+3
-            A.lost = A.lost +1
+            B.oneEightWin = B.oneEightWin+5
         }
-        setData(data + `${A.name} ${B.name} ${firstValue} ${secondValue} ${A.wins} ${B.wins}/`)
-        setStats([A, B])
+
+        setOneEight([A, B])
 
     }
 
@@ -216,6 +211,7 @@ const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setData, data, setStats}) =>
                 </button>
                 <button onClick={SETG}>set</button>
             </h2>
+
         </div>
     );
 };

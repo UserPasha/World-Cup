@@ -29,13 +29,16 @@ const Group: React.FC<GroupProrsType> = ({
     return (lock
             ?
             <div className={style.CroupTitle} onClick={toggler}>
+
                 <div className={style.Title}>GROUP {title}</div>
+
                 <div className={style.FlagItems}>
                     <div className={style.flag}><img src={A.image}/></div>
                     <div className={style.flag}><img src={B.image}/></div>
                     <div className={style.flag}><img src={C.image}/></div>
                     <div className={style.flag}><img src={D.image}/></div>
                 </div>
+
             </div>
             :
             <div className={style.GroupWrapper}>
