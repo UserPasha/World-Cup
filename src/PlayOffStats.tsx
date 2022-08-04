@@ -1,22 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BaseType} from "./Test";
 
 type PlayOffStatsPropsType = {
     winners: BaseType[]
-    setPE: (obj: BaseType[]) => void
+    setWinners: (obj: BaseType[]) => void
 }
- const PlayOffStats: React.FC<PlayOffStatsPropsType> = ({winners, setPE}) => {
+ const PlayOffStats: React.FC<PlayOffStatsPropsType> = ({winners, setWinners}) => {
 
 
-
-    const sortedX = winners.sort((a: BaseType, b: BaseType): number => a.oneEightWin <= b.oneEightWin ? 1 : -1)
+     const [clicker, setClicker] = useState(false)
+    const sortedX = winners.sort((a: BaseType, b: BaseType): number => a.playOffPoints <= b.playOffPoints ? 1 : -1)
     const setter = () => {
-        setPE(sortedX)
+        setWinners(sortedX)
+        console.log(sortedX)
+        setClicker(true)
     }
     return (
-        <div>
-            <button onClick={setter}> XXXXX</button>
-        </div>
+
+            <button onClick={setter} disabled={clicker}> XXXXX</button>
+
     );
 };
 

@@ -16,6 +16,7 @@
     border-radius: 25px;
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .Title {
@@ -97,7 +98,8 @@
 
 .MatchItems {
     width: 90%;
-    min-height: 620px;
+    min-height: 245px;
+    padding-bottom: 60px;
     /*border: aqua 3px solid;*/
     margin: 5% 0 0 10%;
 }

@@ -4,7 +4,7 @@ import style from "./Stats.module.css"
 
 type StatsType = {
     stats: BaseType[],
-    setPlay: (obj: BaseType[]) => void
+    setToSortedArray: (obj: BaseType[]) => void
 }
 const Stats = (Props: StatsType) => {
 
@@ -44,7 +44,7 @@ const Stats = (Props: StatsType) => {
     //     <span>{m.conceded}/</span>
     //     <span>{m.scored - m.conceded}</span></div>)
     const GoTolayOff = () => {
-        Props.setPlay(sortedX)
+        Props.setToSortedArray(sortedX)
         setClicker(true)
     }
     const AllGamesPlayed = Props.stats[0].games !== 3 || Props.stats[1].games !== 3 || Props.stats[2].games !== 3 || Props.stats[3].games !== 3

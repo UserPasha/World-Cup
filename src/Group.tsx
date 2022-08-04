@@ -9,16 +9,14 @@ type GroupProrsType = {
     B: BaseType
     C: BaseType
     D: BaseType
-    setData: (val: string) => void
-    data: string
     setStats: (obj: BaseType[]) => void
-    setPlay: (obj: BaseType[]) => void
+    setToSortedArray: (obj: BaseType[]) => void
     title: string
 }
 
 const Group: React.FC<GroupProrsType> = ({
                                              A, B, C, D,
-                                             title, data, setData, setStats, setPlay
+                                             title, setStats, setToSortedArray
                                          }) => {
 
     const [lock, setLock] = useState<boolean>(true)
@@ -50,19 +48,19 @@ const Group: React.FC<GroupProrsType> = ({
                     <div className={style.MatchesWrapper}>
 
                         <div className={style.MatchItems}>
-                            <Match A={A} B={B} setData={setData} data={data} setStats={setStats}/>
-                            <Match A={C} B={D} setData={setData} data={data} setStats={setStats}/>
-                            <Match A={C} B={A} setData={setData} data={data} setStats={setStats}/>
-                            <Match A={B} B={D} setData={setData} data={data} setStats={setStats}/>
-                            <Match A={B} B={C} setData={setData} data={data} setStats={setStats}/>
-                            <Match A={D} B={A} setData={setData} data={data} setStats={setStats}/>
+                            <Match A={A} B={B} setStats={setStats}/>
+                            <Match A={C} B={D} setStats={setStats}/>
+                            <Match A={C} B={A} setStats={setStats}/>
+                            <Match A={B} B={D} setStats={setStats}/>
+                            <Match A={B} B={C} setStats={setStats}/>
+                            <Match A={D} B={A} setStats={setStats}/>
 
                         </div>
 
                     </div>
 
                     <div className={style.TableWrapper}>
-                        <Stats stats={[A, B, C, D]} setPlay={setPlay}/>
+                        <Stats stats={[A, B, C, D]} setToSortedArray={setToSortedArray}/>
                     </div>
 
                 </div>

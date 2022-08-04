@@ -1,0 +1,19 @@
+.MatchesWrapper{
+    margin: 0 auto;
+    width: 90%;
+    min-height: 100px;
+    background-color: rgb(229, 201, 209);
+    box-shadow: inset -10px -10px 15px rgba(68, 7, 7, 0.5),
+    inset 5px 5px 10px rgba(192, 16, 16, 0.4);
+    /*border: black 2px solid;*/
+    border-radius: 20px
+}
+.Title {
+    margin-top: 18px;
+    width: 500px;
+    height: 50px;
+    /*border: 2px solid greenyellow;*/
+    font-size: 46px;
+    letter-spacing: 8px;
+    color: #FFFFFF;
+}

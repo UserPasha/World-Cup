@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import style from "./Test.module.css"
 import Group from "./Group";
 import SaudiArabia from "./Images/Mini/SaudiArabia.png"
 import Argentina from "./Images/Mini/Argentina.png"
@@ -32,7 +33,8 @@ import Uruguay from "./Images/Mini/Uruguay.png"
 import USAImage from "./Images/Mini/USA.png"
 import Japan from "./Images/Mini/Japan.png"
 import Wales from "./Images/Mini/Wales.png"
-import PlayOffs from "./PlayOffs";
+import PlayOff from "./PlayOff";
+import MatchPO from "./MatchPO";
 
 export  type BaseType = {
     name: string
@@ -47,11 +49,7 @@ export  type BaseType = {
     difference: number
     image: string
     bigBlurImage?: string
-    oneEightWin: number
-    quaterFinalWin: number
-    semiFinalWin: number
-    finalWin: number
-
+    playOffPoints: number
 }
 export const ARA: BaseType = {
     name: "Saudi Arabia",
@@ -65,10 +63,8 @@ export const ARA: BaseType = {
     conceded: 0,
     difference: 0,
     image: SaudiArabia,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
+
 }
 export const ARG: BaseType = {
     name: "Argentina",
@@ -82,10 +78,7 @@ export const ARG: BaseType = {
     conceded: 0,
     difference: 0,
     image: Argentina,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const AST: BaseType = {
     name: "Australia",
@@ -99,10 +92,7 @@ export const AST: BaseType = {
     conceded: 0,
     difference: 0,
     image: Australia,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const BEL: BaseType = {
     name: "Belgium",
@@ -116,10 +106,7 @@ export const BEL: BaseType = {
     conceded: 0,
     difference: 0,
     image: Belgium,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const BRA: BaseType = {
     name: "Brasil",
@@ -133,10 +120,7 @@ export const BRA: BaseType = {
     conceded: 0,
     difference: 0,
     image: Brazil,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const CAM: BaseType = {
     name: "Cameroon",
@@ -150,10 +134,7 @@ export const CAM: BaseType = {
     conceded: 0,
     difference: 0,
     image: Cameroon,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const CAN: BaseType = {
     name: "Canada",
@@ -167,10 +148,7 @@ export const CAN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Canada,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const COS: BaseType = {
     name: "Costa Rica",
@@ -184,10 +162,7 @@ export const COS: BaseType = {
     conceded: 0,
     difference: 0,
     image: CostaRica,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const CRO: BaseType = {
     name: "Croatia",
@@ -201,10 +176,7 @@ export const CRO: BaseType = {
     conceded: 0,
     difference: 0,
     image: Croatia,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const DAN: BaseType = {
     name: "Denmark",
@@ -218,10 +190,7 @@ export const DAN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Denmark,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const ECU: BaseType = {
     name: "Ecuador",
@@ -235,10 +204,7 @@ export const ECU: BaseType = {
     conceded: 0,
     difference: 0,
     image: Ecuador,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const ENG: BaseType = {
     name: "England",
@@ -252,10 +218,7 @@ export const ENG: BaseType = {
     conceded: 0,
     difference: 0,
     image: England,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const FRA: BaseType = {
     name: "France",
@@ -269,10 +232,7 @@ export const FRA: BaseType = {
     conceded: 0,
     difference: 0,
     image: France,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const GER: BaseType = {
     name: "Germany",
@@ -286,10 +246,7 @@ export const GER: BaseType = {
     conceded: 0,
     difference: 0,
     image: Germany,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const GHA: BaseType = {
     name: "Ghana",
@@ -303,10 +260,7 @@ export const GHA: BaseType = {
     conceded: 0,
     difference: 0,
     image: Ghana,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const IRN: BaseType = {
     name: "Iran",
@@ -320,10 +274,7 @@ export const IRN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Iran,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const KOR: BaseType = {
     name: "South Korea",
@@ -337,10 +288,7 @@ export const KOR: BaseType = {
     conceded: 0,
     difference: 0,
     image: SouthKorea,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const MEX: BaseType = {
     name: "Mexico",
@@ -354,10 +302,7 @@ export const MEX: BaseType = {
     conceded: 0,
     difference: 0,
     image: Mexico,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const MOR: BaseType = {
     name: "Morocco",
@@ -371,10 +316,7 @@ export const MOR: BaseType = {
     conceded: 0,
     difference: 0,
     image: Morocco,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const NET: BaseType = {
     name: "Netherlands",
@@ -388,10 +330,7 @@ export const NET: BaseType = {
     conceded: 0,
     difference: 0,
     image: Netherlands,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const POL: BaseType = {
     name: "Poland",
@@ -405,10 +344,7 @@ export const POL: BaseType = {
     conceded: 0,
     difference: 0,
     image: Poland,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const POR: BaseType = {
     name: "Portugal",
@@ -422,10 +358,7 @@ export const POR: BaseType = {
     conceded: 0,
     difference: 0,
     image: Portugal,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const QUA: BaseType = {
     name: "Qatar",
@@ -439,10 +372,7 @@ export const QUA: BaseType = {
     conceded: 0,
     difference: 0,
     image: Qatar,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const SEN: BaseType = {
     name: "Senegal",
@@ -456,10 +386,7 @@ export const SEN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Senegal,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const SER: BaseType = {
     name: "Serbia",
@@ -473,10 +400,7 @@ export const SER: BaseType = {
     conceded: 0,
     difference: 0,
     image: Serbia,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const SPA: BaseType = {
     name: "Spain",
@@ -490,10 +414,7 @@ export const SPA: BaseType = {
     conceded: 0,
     difference: 0,
     image: Spain,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const SWI: BaseType = {
     name: "Switzerland",
@@ -507,10 +428,7 @@ export const SWI: BaseType = {
     conceded: 0,
     difference: 0,
     image: Switzerland,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const TUN: BaseType = {
     name: "Tunisia",
@@ -524,10 +442,7 @@ export const TUN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Tunisia,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const URU: BaseType = {
     name: "Uruguay",
@@ -541,10 +456,7 @@ export const URU: BaseType = {
     conceded: 0,
     difference: 0,
     image: Uruguay,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const USA: BaseType = {
     name: "United States",
@@ -558,10 +470,7 @@ export const USA: BaseType = {
     conceded: 0,
     difference: 0,
     image: USAImage,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const JPN: BaseType = {
     name: "Japan",
@@ -575,10 +484,7 @@ export const JPN: BaseType = {
     conceded: 0,
     difference: 0,
     image: Japan,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const WAL: BaseType = {
     name: "Wales",
@@ -592,10 +498,7 @@ export const WAL: BaseType = {
     conceded: 0,
     difference: 0,
     image: Wales,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 export const TES: BaseType = {
     name: "Country",
@@ -609,40 +512,40 @@ export const TES: BaseType = {
     conceded: 0,
     difference: 0,
     image: Wales,
-    oneEightWin: 0,
-    quaterFinalWin: 0,
-    semiFinalWin: 0,
-    finalWin: 0
+    playOffPoints: 0
 }
 
-// const BLR: BaseType = {
-//     name: "Belarus",
-//     rating: 24,
-//     games: 0,
-//     points: 0,
-//     wins: 0,
-//     draws: 0,
-//     lost: 0,
-//     scored: 0,
-//     conceded: 0,
-//     difference: 0
-// }
-// const EST: BaseType = {
-//     name: "Estonia",
-//     rating: 33,
-//     games: 0,
-//     points: 0,
-//     wins: 0,
-//     draws: 0,
-//     lost: 0,
-//     scored: 0,
-//     conceded: 0,
-//     difference: 0
-// }
+const BLR: BaseType = {
+    name: "Belarus",
+    rating: 94,
+    games: 0,
+    points: 0,
+    wins: 0,
+    draws: 0,
+    lost: 0,
+    scored: 0,
+    conceded: 0,
+    difference: 0,
+    image: Wales,
+    playOffPoints: 0
+}
+const EST: BaseType = {
+    name: "Estonia",
+    rating: 93,
+    games: 0,
+    points: 0,
+    wins: 0,
+    draws: 0,
+    lost: 0,
+    scored: 0,
+    conceded: 0,
+    difference: 0,
+    image: Wales,
+    playOffPoints: 0
+}
 const Test = () => {
 
 
-    const [data, setData] = useState<string>("")
     const [stats, setStats] = useState<BaseType[]>([TES, TES])
     const [oneEight, setOneEight] = useState<BaseType[]>([TES, TES])
     const [a1, setA1] = useState<BaseType[]>([TES, TES])
@@ -668,54 +571,60 @@ const Test = () => {
     const [q2, setQ2] = useState<BaseType[]>([TES, TES])
     const [q3, setQ3] = useState<BaseType[]>([TES, TES])
 
-    const [semi, setSemi]= useState<BaseType[]>([TES, TES])
-    const [semi2, setSemi2]= useState<BaseType[]>([TES, TES])
+    const [semi, setSemi] = useState<BaseType[]>([TES, TES])
+    const [semi2, setSemi2] = useState<BaseType[]>([TES, TES])
 
-    const [final, setFinal]= useState<BaseType[]>([TES, TES])
-    const [final2, setFinal2]= useState<BaseType[]>([TES, TES])
+    const [final, setFinal] = useState<BaseType[]>([TES, TES])
+    const [final2, setFinal2] = useState<BaseType[]>([TES, TES])
+
+    // const OneEightFinalists = [a1[0], b1[1], c1[0], d1[1], d1[0],c1[1], b1[0], a1[1],
+    //     e1[0], f1[1], g1[0], h1[1], f1[0], e1[1], h1[0], g1[1]]
+    const OneEightFinalists = [BLR, EST, BLR, EST, d1[0], c1[1], b1[0], a1[1],
+        e1[0], f1[1], g1[0], h1[1], f1[0], e1[1], h1[0], g1[1]]
 
     return (
         <>
 
-            <div className="AppWrapper">
+            <div className={style.AppWrapper}>
 
-                <Group A={SEN} B={NET} C={QUA} D={ECU} setData={setData} data={data} setStats={setStats}
-                       setPlay={setA1} title={"A"}/>
-                <Group A={ENG} B={IRN} C={USA} D={WAL} setData={setData} data={data} setStats={setStats}
-                       setPlay={setB1} title={"B"}/>
-                <Group A={ARG} B={ARA} C={MEX} D={POL} setData={setData} data={data} setStats={setStats}
-                       setPlay={setC1} title={"C"}/>
-                <Group A={DAN} B={TUN} C={FRA} D={AST} setData={setData} data={data} setStats={setStats}
-                       setPlay={setD1} title={"D"}/>
-                <Group A={GER} B={JPN} C={SPA} D={COS} setData={setData} data={data} setStats={setStats}
-                       setPlay={setE1} title={"E"}/>
-                <Group A={MOR} B={CRO} C={BEL} D={CAN} setData={setData} data={data} setStats={setStats}
-                       setPlay={setF1} title={"F"}/>
-                <Group A={SWI} B={CAM} C={BRA} D={SER} setData={setData} data={data} setStats={setStats}
-                       setPlay={setG1} title={"G"}/>
-                <Group A={URU} B={KOR} C={POR} D={GHA} setData={setData} data={data} setStats={setStats}
-                       setPlay={setH1} title={"H"}/>
-                <PlayOffs A={a1[0]} B={b1[1]} setOneEight={setOneEight} setPE={setPE}/>
-                <PlayOffs A={c1[0]} B={d1[1]} setOneEight={setOneEight} setPE={setPE2}/>
-                <PlayOffs A={d1[0]} B={c1[1]} setOneEight={setOneEight} setPE={setPE3}/>
-                <PlayOffs A={b1[0]} B={a1[1]} setOneEight={setOneEight} setPE={setPE4}/>
-                <PlayOffs A={e1[0]} B={f1[1]} setOneEight={setOneEight} setPE={setPE5}/>
-                <PlayOffs A={g1[0]} B={h1[1]} setOneEight={setOneEight} setPE={setPE6}/>
-                <PlayOffs A={f1[0]} B={e1[1]} setOneEight={setOneEight} setPE={setPE7}/>
-                <PlayOffs A={h1[0]} B={g1[1]} setOneEight={setOneEight} setPE={setPE8}/>
+                <Group A={SEN} B={NET} C={QUA} D={ECU} setStats={setStats} setToSortedArray={setA1} title={"A"}/>
+                <Group A={ENG} B={IRN} C={USA} D={WAL} setStats={setStats} setToSortedArray={setB1} title={"B"}/>
+                <Group A={ARG} B={ARA} C={MEX} D={POL} setStats={setStats} setToSortedArray={setC1} title={"C"}/>
+                <Group A={DAN} B={TUN} C={FRA} D={AST} setStats={setStats} setToSortedArray={setD1} title={"D"}/>
+                <Group A={GER} B={JPN} C={SPA} D={COS} setStats={setStats} setToSortedArray={setE1} title={"E"}/>
+                <Group A={MOR} B={CRO} C={BEL} D={CAN} setStats={setStats} setToSortedArray={setF1} title={"F"}/>
+                <Group A={SWI} B={CAM} C={BRA} D={SER} setStats={setStats} setToSortedArray={setG1} title={"G"}/>
+                <Group A={URU} B={KOR} C={POR} D={GHA} setStats={setStats} setToSortedArray={setH1} title={"H"}/>
+                {/*<PlayOffs A={BLR} B={EST} setOneEight={setOneEight} setPE={setPE}/>*/}
 
 
-                <PlayOffs A={pE5[0]} B={pE6[0]} setOneEight={setOneEight} setPE={setQ}/>
-                <PlayOffs A={pE[0]} B={pE2[0]} setOneEight={setOneEight} setPE={setQ1}/>
-                <PlayOffs A={pE7[0]} B={pE8[0]} setOneEight={setOneEight} setPE={setQ2}/>
-                <PlayOffs A={pE4[0]} B={pE3[0]} setOneEight={setOneEight} setPE={setQ3}/>
+                <PlayOff title={"1 / 8 FINAL"}>
+                    <MatchPO A={a1[0]} B={b1[1]} setStats={setStats} setWinners={setPE}/>
+                    <MatchPO A={c1[0]} B={d1[1]} setStats={setStats} setWinners={setPE2}/>
+                    <MatchPO A={d1[0]} B={c1[1]} setStats={setStats} setWinners={setPE3}/>
+                    <MatchPO A={b1[0]} B={a1[1]} setStats={setStats} setWinners={setPE4}/>
+                    <MatchPO A={e1[0]} B={f1[1]} setStats={setStats} setWinners={setPE5}/>
+                    <MatchPO A={g1[0]} B={h1[1]} setStats={setStats} setWinners={setPE6}/>
+                    <MatchPO A={f1[0]} B={e1[1]} setStats={setStats} setWinners={setPE7}/>
+                    <MatchPO A={h1[0]} B={g1[1]} setStats={setStats} setWinners={setPE8}/>
+                </PlayOff>
 
-                <PlayOffs A={q1[0]} B={q[0]} setOneEight={setOneEight} setPE={setSemi}/>
-                <PlayOffs A={q3[0]} B={q2[0]} setOneEight={setOneEight} setPE={setSemi2}/>
 
-                <PlayOffs A={semi[1]} B={semi2[1]} setOneEight={setOneEight} setPE={setFinal2}/>
+                <PlayOff title={"QUARTER-FINAL"}>
+                    <MatchPO A={pE5[0]} B={pE6[0]} setStats={setStats} setWinners={setQ}/>
+                    <MatchPO A={pE[0]} B={pE2[0]} setStats={setStats} setWinners={setQ1}/>
+                    <MatchPO A={pE7[0]} B={pE8[0]} setStats={setStats} setWinners={setQ2}/>
+                    <MatchPO A={pE4[0]} B={pE3[0]} setStats={setStats} setWinners={setQ3}/>
+                </PlayOff>
 
-                <PlayOffs A={semi[0]} B={semi2[0]} setOneEight={setOneEight} setPE={setFinal}/>
+                <PlayOff title={"SEMI-FINAL"}>
+                    <MatchPO A={q1[0]} B={q[0]} setStats={setStats} setWinners={setSemi}/>
+                    <MatchPO A={q3[0]} B={q2[0]} setStats={setStats} setWinners={setSemi2}/>
+                </PlayOff>
+
+                {/*<PlayOffs A={semi[1]} B={semi2[1]} setOneEight={setOneEight} setPE={setFinal2}/>*/}
+
+                {/*<PlayOffs A={semi[0]} B={semi2[0]} setOneEight={setOneEight} setPE={setFinal}/>*/}
 
                 <div>Winner: {final[0].name}</div>
                 <div>Silver: {final[1].name}</div>
