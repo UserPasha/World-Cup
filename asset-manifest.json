@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/World-Cup/static/css/main.2e15d3a3.css",
-    "main.js": "/World-Cup/static/js/main.5cd44c1d.js",
+    "main.css": "/World-Cup/static/css/main.f040bcbe.css",
+    "main.js": "/World-Cup/static/js/main.a545ed2b.js",
     "static/js/787.8329ba45.chunk.js": "/World-Cup/static/js/787.8329ba45.chunk.js",
     "static/media/Brazil.png": "/World-Cup/static/media/Brazil.d5d82beca796f94ba42c.png",
     "static/media/USA.png": "/World-Cup/static/media/USA.4d9d990626a3df96a265.png",
@@ -11,6 +11,7 @@
     "static/media/Qatar.png": "/World-Cup/static/media/Qatar.a89c78dc275b09664dac.png",
     "static/media/Morocco.png": "/World-Cup/static/media/Morocco.a7540d81fc9450bfcc7e.png",
     "static/media/Serbia.png": "/World-Cup/static/media/Serbia.6c08d42318d8ab7228d7.png",
+    "static/media/emblem.png": "/World-Cup/static/media/emblem.c192772431dbfd73e58e.png",
     "static/media/Iran.png": "/World-Cup/static/media/Iran.5437059a60d6fc812093.png",
     "static/media/Mexico.png": "/World-Cup/static/media/Mexico.7ca2f7d648843876f031.png",
     "static/media/Wales.png": "/World-Cup/static/media/Wales.9fd15b567e6f182b51f4.png",
@@ -36,12 +37,12 @@
     "static/media/Germany.png": "/World-Cup/static/media/Germany.cc670a050b591bf6656d.png",
     "static/media/Belgium.png": "/World-Cup/static/media/Belgium.5337b5daaaa07cefb2d0.png",
     "index.html": "/World-Cup/index.html",
-    "main.2e15d3a3.css.map": "/World-Cup/static/css/main.2e15d3a3.css.map",
-    "main.5cd44c1d.js.map": "/World-Cup/static/js/main.5cd44c1d.js.map",
+    "main.f040bcbe.css.map": "/World-Cup/static/css/main.f040bcbe.css.map",
+    "main.a545ed2b.js.map": "/World-Cup/static/js/main.a545ed2b.js.map",
     "787.8329ba45.chunk.js.map": "/World-Cup/static/js/787.8329ba45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e15d3a3.css",
-    "static/js/main.5cd44c1d.js"
+    "static/css/main.f040bcbe.css",
+    "static/js/main.a545ed2b.js"
   ]
 }
