@@ -33,6 +33,7 @@ import Uruguay from "./Images/Mini/Uruguay.png"
 import USAImage from "./Images/Mini/USA.png"
 import Japan from "./Images/Mini/Japan.png"
 import Wales from "./Images/Mini/Wales.png"
+import Logo from "./Images/Mini/emblem.png"
 import PlayOff from "./PlayOff";
 import MatchPO from "./MatchPO";
 
@@ -511,7 +512,7 @@ export const TES: BaseType = {
     scored: 0,
     conceded: 0,
     difference: 0,
-    image: Wales,
+    image: Logo,
     playOffPoints: 0
 }
 
@@ -577,11 +578,6 @@ const Test = () => {
     const [final, setFinal] = useState<BaseType[]>([TES, TES])
     const [final2, setFinal2] = useState<BaseType[]>([TES, TES])
 
-    // const OneEightFinalists = [a1[0], b1[1], c1[0], d1[1], d1[0],c1[1], b1[0], a1[1],
-    //     e1[0], f1[1], g1[0], h1[1], f1[0], e1[1], h1[0], g1[1]]
-    const OneEightFinalists = [BLR, EST, BLR, EST, d1[0], c1[1], b1[0], a1[1],
-        e1[0], f1[1], g1[0], h1[1], f1[0], e1[1], h1[0], g1[1]]
-
     return (
         <>
 
@@ -599,6 +595,7 @@ const Test = () => {
 
 
                 <PlayOff title={"1 / 8 FINAL"}>
+
                     <MatchPO A={a1[0]} B={b1[1]} setStats={setStats} setWinners={setPE}/>
                     <MatchPO A={c1[0]} B={d1[1]} setStats={setStats} setWinners={setPE2}/>
                     <MatchPO A={d1[0]} B={c1[1]} setStats={setStats} setWinners={setPE3}/>
@@ -622,9 +619,12 @@ const Test = () => {
                     <MatchPO A={q3[0]} B={q2[0]} setStats={setStats} setWinners={setSemi2}/>
                 </PlayOff>
 
-                {/*<PlayOffs A={semi[1]} B={semi2[1]} setOneEight={setOneEight} setPE={setFinal2}/>*/}
+                <PlayOff title={"FINALS"}>
+                    <MatchPO A={semi[1]} B={semi2[1]} setStats={setStats} setWinners={setFinal2}/>
+                    <MatchPO A={semi[0]} B={semi2[0]} setStats={setStats} setWinners={setFinal}/>
+                </PlayOff>
 
-                {/*<PlayOffs A={semi[0]} B={semi2[0]} setOneEight={setOneEight} setPE={setFinal}/>*/}
+
 
                 <div>Winner: {final[0].name}</div>
                 <div>Silver: {final[1].name}</div>

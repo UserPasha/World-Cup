@@ -32,7 +32,8 @@ const PlayOff: React.FC<PlayTypeProps> = ({children, title}) => {
                 <div className={style.GroupItemWrapper}>
                 <div className={ownStyle.MatchesWrapper}>
 
-                        <div className={style.MatchItems}>
+                        <div className={ownStyle.MatchItems}>
+
                             {children}
 
                         </div>

@@ -1,4 +1,5 @@
 .MatchesWrapper{
+    position: relative;
     margin: 0 auto;
     width: 90%;
     min-height: 100px;
@@ -6,7 +7,8 @@
     box-shadow: inset -10px -10px 15px rgba(68, 7, 7, 0.5),
     inset 5px 5px 10px rgba(192, 16, 16, 0.4);
     /*border: black 2px solid;*/
-    border-radius: 20px
+    border-radius: 20px;
+    z-index: 1;
 }
 .Title {
     margin-top: 18px;
@@ -16,4 +18,12 @@
     font-size: 46px;
     letter-spacing: 8px;
     color: #FFFFFF;
+}
+
+.MatchItems {
+    width: 90%;
+    min-height: 245px;
+    padding-bottom: 60px;
+    /*border: aqua 3px solid;*/
+    margin: 5% auto;
 }

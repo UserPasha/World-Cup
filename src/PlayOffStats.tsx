@@ -17,7 +17,7 @@ type PlayOffStatsPropsType = {
     }
     return (
 
-            <button onClick={setter} disabled={clicker}> XXXXX</button>
+            <button onClick={setter} disabled={clicker}> &#10148; </button>
 
     );
 };

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {BaseType} from "./Test";
 import style from "./Stats.module.css"
+import emblem from "./Images/Mini/emblem.png"
 
 type StatsType = {
     stats: BaseType[],
@@ -73,7 +74,9 @@ const Stats = (Props: StatsType) => {
             </table>
 
             <button onClick={GoTolayOff} disabled={AllGamesPlayed || clicker}>Go PlayOFF</button>
-
+            <div className={style.CupLogo}>
+                <img src={emblem}/>
+            </div>
 
         </div>
     );

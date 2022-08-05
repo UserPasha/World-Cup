@@ -370,37 +370,45 @@ const MatchPO: React.FC<MatchPOPropsType> = ({A, B, setStats, setWinners}) => {
         } else if (firstValue < secondValue) {
             B.playOffPoints = B.playOffPoints + 5
         }
-        setStats([A, B])
+
+        const sortedX = [A, B].sort((a: BaseType, b: BaseType): number => a.playOffPoints <= b.playOffPoints ? 1 : -1)
+
+        setStats(sortedX)
+        console.log(sortedX)
         setSecondClicker(true)
     }
 
     return (
         <>
 
-            <div className={style.MatcItem}>
+            <div className={ownStyle.MatcItem}>
 
                 <div className={style.ItemWrapper}>
-
+                    <div className={ownStyle.flagWrapper}>
+                        <img src={A.image}/>
+                    </div>
                     <div className={style.ItemValuesWithNames}>{A.name}</div>
                     <div className={style.ItemValues}>{firstValue}</div>
                     <div className={style.ItemValues}>{secondValue}</div>
                     <div className={style.ItemValuesWithNames}>{B.name}</div>
+                    <div className={ownStyle.flagWrapper}>
+                        <img src={B.image}/>
+                    </div>
+
                 </div>
                 <div className={ownStyle.ButtnosWrapper}>
                     <button onClick={() => {
                         testGenerate(A.rating, B.rating, setFirstValue, setSecondValue)
-                    }} disabled={clicker}>play
+                    }} disabled={clicker}>&#9917;
                     </button>
-                    <button onClick={SETG} disabled={secondClicker}>set</button>
+                    <button onClick={SETG} disabled={secondClicker}>&#9776;</button>
                     <PlayOffStats winners={[A,B]} setWinners={setWinners}/>
                 </div>
 
 
             </div>
 
-            <div>
-                {/*<PlayOffStats winners={[A,B]} setWinners={setWinners}/>*/}
-            </div>
+
 
         </>
     );
