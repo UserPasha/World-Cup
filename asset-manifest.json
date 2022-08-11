@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/World-Cup/static/css/main.f040bcbe.css",
+    "main.css": "/World-Cup/static/css/main.d227c91d.css",
     "main.js": "/World-Cup/static/js/main.a545ed2b.js",
     "static/js/787.8329ba45.chunk.js": "/World-Cup/static/js/787.8329ba45.chunk.js",
     "static/media/Brazil.png": "/World-Cup/static/media/Brazil.d5d82beca796f94ba42c.png",
@@ -37,12 +37,12 @@
     "static/media/Germany.png": "/World-Cup/static/media/Germany.cc670a050b591bf6656d.png",
     "static/media/Belgium.png": "/World-Cup/static/media/Belgium.5337b5daaaa07cefb2d0.png",
     "index.html": "/World-Cup/index.html",
-    "main.f040bcbe.css.map": "/World-Cup/static/css/main.f040bcbe.css.map",
+    "main.d227c91d.css.map": "/World-Cup/static/css/main.d227c91d.css.map",
     "main.a545ed2b.js.map": "/World-Cup/static/js/main.a545ed2b.js.map",
     "787.8329ba45.chunk.js.map": "/World-Cup/static/js/787.8329ba45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f040bcbe.css",
+    "static/css/main.d227c91d.css",
     "static/js/main.a545ed2b.js"
   ]
 }
