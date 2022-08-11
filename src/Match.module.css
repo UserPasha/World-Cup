@@ -1,5 +1,5 @@
 .MatcItem {
-    margin: 10px auto;
+    margin: 10px 0 0 0;
     width: 90%;
     height: 90px;
     border: black 2px solid;
@@ -69,4 +69,24 @@
 .ButtnosWrapper button:disabled{
 border: 1px solid rgba(56, 1, 20, 0.9);
     box-shadow: inset 0 5px 10px 2px rgba(23, 1, 8, 0.9);
+}
+
+@media (max-width: 1080px){
+    .MatcItem{
+        width: 100%;
+    }
+    .ItemWrapper {
+        font-size: 32px;
+        line-height: 24px;
+        width: 60%;
+    }
+    .ItemValues {
+        font-size: 46px;
+    }
+    .ButtnosWrapper{
+        width: 210px;
+    }
+    .ButtnosWrapper button{
+        margin-right: 45px;
+    }
 }

@@ -79,3 +79,29 @@ tr:nth-child(4) {
 .CupLogo img {
     margin: 50px 0 0 160px;
 }
+
+@media (max-width: 1080px){
+    .StatsWrapper{
+        font-size: 36px;
+        line-height: 24px;
+    }
+    .StatsWrapper td {
+        height: 80px;
+    }
+    .thItem {
+        width: 60px;
+    }
+    .tdCountryName {
+        width: 220px;
+    }
+    .StatsWrapper button{
+        margin: 30px 0 0 280px;
+        width: 230px;
+        height: 90px;
+        font-size: 32px;
+    }
+    .CupLogo img {
+        width: 300px;
+        margin: 50px 0 0 245px;
+    }
+}

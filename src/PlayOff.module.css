@@ -27,3 +27,8 @@
     /*border: aqua 3px solid;*/
     margin: 5% auto;
 }
+@media (max-width: 1080px){
+    .MatchItems{
+        padding: 30px 0;
+    }
+}
