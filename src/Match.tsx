@@ -8,7 +8,7 @@ type MatchType = {
     setStats: (obj: BaseType[]) => void
 }
 
-const Match: React.FC<MatchType> = ({A, B,  setStats}) => {
+const Match: React.FC<MatchType> = ({A, B, setStats}) => {
 
     const [firstValue, setFirstValue] = useState<number>(0)
     const [secondValue, setSecondValue] = useState<number>(0)
@@ -456,8 +456,7 @@ const Match: React.FC<MatchType> = ({A, B,  setStats}) => {
         }
         setClicker(true)
 
-
-
+debugger
         setStats([A, B])
 
 
@@ -486,7 +485,7 @@ const Match: React.FC<MatchType> = ({A, B,  setStats}) => {
             A.points = A.points + 1
             B.points = B.points + 1
         }
-
+debugger
         setStats([A, B])
         setSecondClicker(true)
 

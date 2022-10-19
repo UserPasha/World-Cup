@@ -60,10 +60,11 @@ tr:nth-child(4) {
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 3px 5px 10px 0 rgba(168, 91, 91, 0.6);
+    background-color: rgb(168, 91, 91);
 }
 
 .StatsWrapper button:hover {
-    background-color: rgb(168, 91, 91);
+
     box-shadow: 0 4px 6px 4px rgba(168, 91, 91, 0.6);
 }
 
@@ -74,6 +75,7 @@ tr:nth-child(4) {
 .StatsWrapper button:disabled {
     border: 1px solid rgba(56, 1, 20, 0.9);
     box-shadow: inset 0 5px 10px 2px rgba(23, 1, 8, 0.9);
+    background-color:rgba(56, 1, 20, 0.9);
 }
 
 .CupLogo img {

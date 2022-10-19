@@ -36,6 +36,7 @@ import Wales from "./Images/Mini/Wales.png"
 import Logo from "./Images/Mini/emblem.png"
 import PlayOff from "./PlayOff";
 import MatchPO from "./MatchPO";
+import {Screw} from "./Screw/Screw";
 
 export  type BaseType = {
     name: string
@@ -577,7 +578,8 @@ const Test = () => {
 
     const [final, setFinal] = useState<BaseType[]>([TES, TES])
     const [final2, setFinal2] = useState<BaseType[]>([TES, TES])
-
+    console.log(NET);
+    console.log(SEN);
     return (
         <>
 
@@ -625,13 +627,12 @@ const Test = () => {
                 </PlayOff>
 
 
-
                 <div>Winner: {final[0].name}</div>
                 <div>Silver: {final[1].name}</div>
                 <div>Podium: {final2[0].name}</div>
 
             </div>
-
+            <Screw/>
 
         </>
     );

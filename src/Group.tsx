@@ -40,7 +40,7 @@ const Group: React.FC<GroupProrsType> = ({
             </div>
             :
             <div className={style.GroupWrapper}>
-                <div className={style.CroupHeader} onClick={toggler}>
+                <div className={style.CroupHeader}  onClick={toggler} >
                     <h3>GROUP {title}</h3></div>
 
                 <div className={style.GroupItemWrapper}>
